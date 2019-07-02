@@ -1,0 +1,163 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  finalizers: []
+  labels:
+    app: "bookstore"
+  name: "bookstore-rest-56b1a50c-eaad-456f-a267-e66b9c0e2c4e"
+  ownerReferences: []
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  ports:
+  - port: 9096
+    protocol: "TCP"
+    targetPort: 9096
+  selector:
+    app: "bookstore"
+  type: "NodePort"
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  finalizers: []
+  labels:
+    app: "bookstore"
+  name: "bookstore-rest-9b0a60d7-80bf-436a-82e0-6450d56649d5"
+  ownerReferences: []
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  ports:
+  - port: 9095
+    protocol: "TCP"
+    targetPort: 9095
+  selector:
+    app: "bookstore"
+  type: "NodePort"
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations: {}
+  finalizers: []
+  labels:
+    app: "bookstore"
+  name: "bookstore-rest-a35f17d5-dec7-4039-bc3f-138e3ba3832d"
+  ownerReferences: []
+spec:
+  externalIPs: []
+  loadBalancerSourceRanges: []
+  ports:
+  - port: 9090
+    protocol: "TCP"
+    targetPort: 9090
+  selector:
+    app: "bookstore"
+  type: "NodePort"
+---
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  annotations: {}
+  finalizers: []
+  labels: {}
+  name: "kindel-book-store--1-0-0-ballerina-conf-config-map"
+  ownerReferences: []
+data:
+  ballerina.conf: "[listenerConfig]\nhost=\"0.0.0.0\"\nhttpPort=9090\nhttpsPort=9095\n\
+    keyStore.path=\"${ballerina.home}/bre/security/ballerinaKeystore.p12\"\nkeyStore.password=\"\
+    ballerina\"\ntrustStore.path=\"${ballerina.home}/bre/security/ballerinaTruststore.p12\"\
+    \ntrustStore.password=\"ballerina\"\ntokenListenerPort=9096\n\n[authConfig]\n\
+    authorizationHeader=\"Authorization\"\nremoveAuthHeaderFromOutMessage=true\n\n\
+    [keyManager]\nserverUrl=\"https://localhost:9443\"\nusername=\"admin\"\npassword=\"\
+    admin\"\ntokenContext=\"oauth2\"\ntimestampSkew=5000\n\n\n[jwtTokenConfig]\nissuer=\"\
+    https://dev-4sxt2imb.au.auth0.com/\"\naudience=\"http://org.wso2.apimgt/gateway\"\
+    \ncertificateAlias=\"auth0\"\n\n\n[jwtConfig]\nheader=\"X-JWT-Assertion\"\n\n\
+    [caching]\nenabled=true\ntokenCache.expiryTime=900000\ntokenCache.capacity=10000\n\
+    tokenCache.evictionFactor=0.25\n\n[analytics]\nenable=false\nuploadingTimeSpanInMillis=600000\n\
+    uploadingEndpoint=\"https://localhost:9444/analytics/v1.0/usage/upload-file\"\n\
+    rotatingPeriod=600000\ntask.uploadFiles=true\nusername=\"admin\"\npassword=\"\
+    admin\"\n\n[http2]\nenable=false\n\n[mutualSSLConfig]\nprotocolName=\"TLS\"\n\
+    protocolVersions=\"TLSv1.2,TLSv1.1\"\nciphers=\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,\
+    \ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256,\
+    \ TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_DSS_WITH_AES_128_CBC_SHA256,\
+    \ TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,\
+    \ TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDH_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,\
+    \ TLS_DHE_DSS_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\
+    \  ,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256,\
+    \ TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_DSS_WITH_AES_128_GCM_SHA256\
+    \  ,TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA,\
+    \ TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA,\
+    \ SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA,TLS_EMPTY_RENEGOTIATION_INFO_SCSV\"\nsslVerifyClient=\"\
+    optional\"\n\n[\"b7a.users\"]\n[\"b7a.users.generalUser1\"]\npassword=\"5BAA61E4C9B93F3F0682250B6CF8331B7EE68FD8\"\
+    \n\n[validationConfig]\nenableRequestValidation = false\nenableResponseValidation\
+    \ = false\n\n\n[throttlingConfig]\nenabledGlobalTMEventPublishing = false\njmsConnectioninitialContextFactory\
+    \ = \"bmbInitialContextFactory\"\njmsConnectionProviderUrl= \"amqp://admin:admin@carbon/carbon?brokerlist='tcp://localhost:5672'\"\
+    \njmsConnectionUsername = \"\"\njmsConnectionPassword = \"\"\nthrottleEndpointUrl\
+    \ = \"https://localhost:9443/endpoints\"\nthrottleEndpointbase64Header = \"admin:admin\"\
+    \n\n[tokenRevocationConfig]\n  [tokenRevocationConfig.realtime]\n    enableRealtimeMessageRetrieval\
+    \ = false\n    jmsConnectionTopic = \"tokenRevocation\"\n    jmsConnectioninitialContextFactory\
+    \ = \"bmbInitialContextFactory\"\n    jmsConnectionProviderUrl= \"amqp://admin:admin@carbon/carbon?brokerlist='tcp://localhost:5672'\"\
+    \n    jmsConnectionUsername = \"\"\n    jmsConnectionPassword = \"\"\n  [tokenRevocationConfig.persistent]\n\
+    \    enablePersistentStorageRetrieval = false\n    useDefault = true\n    hostname\
+    \ = \"https://127.0.0.1:2379/v2/keys/jti/\"\n    username = \"root\"\n    password\
+    \ = \"root\"\n\n[httpClients]\n  verifyHostname=true"
+---
+apiVersion: "extensions/v1beta1"
+kind: "Deployment"
+metadata:
+  annotations: {}
+  finalizers: []
+  labels:
+    app: "bookstore"
+  name: "bookstore-deployment-e324c639-c67d-452d-a9d5-acae59084909"
+  ownerReferences: []
+spec:
+  replicas: 2
+  template:
+    metadata:
+      annotations: {}
+      finalizers: []
+      labels:
+        app: "bookstore"
+      ownerReferences: []
+    spec:
+      containers:
+      - args: []
+        command: []
+        env:
+        - name: "etcdurl"
+          value: "http://35.226.63.174:30122"
+        - name: "b7a_log_level"
+          value: "TRACE"
+        - name: "CONFIG_FILE"
+          value: "/home/ballerina/conf/ballerina.conf"
+        envFrom: []
+        image: "rajithk90/bookstoregateway:3.0.0"
+        imagePullPolicy: "Always"
+        name: "bookstore-deployment-e324c639-c67d-452d-a9d5-acae59084909"
+        ports:
+        - containerPort: 9090
+          protocol: "TCP"
+        - containerPort: 9095
+          protocol: "TCP"
+        - containerPort: 9096
+          protocol: "TCP"
+        volumeMounts:
+        - mountPath: "/home/ballerina/conf/"
+          name: "kindel-book-store--1-0-0-ballerina-conf-config-map-volume"
+          readOnly: false
+      hostAliases: []
+      imagePullSecrets: []
+      initContainers: []
+      nodeSelector: {}
+      tolerations: []
+      volumes:
+      - configMap:
+          items: []
+          name: "kindel-book-store--1-0-0-ballerina-conf-config-map"
+        name: "kindel-book-store--1-0-0-ballerina-conf-config-map-volume"
