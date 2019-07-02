@@ -31,10 +31,38 @@ paths:
         '400':
           description: Invalid status value
       x-wso2-production-endpoints: "#/x-wso2-endpoints/bookList"
+  "/books/search/{query}":
+    get:
+      tags:
+      - pet
+      summary: Find pet by ID
+      description: Returns a single pet
+      operationId: getPetById
+      parameters:
+      - name: query
+        in: path
+        description: search query to be used
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid query supplied
+        '404':
+          description: Pet not found
+      x-wso2-production-endpoints: "#/x-wso2-endpoints/bookSearch"
+      x-wso2-request-interceptor: validateHeader
+      x-wso2-response-interceptor: sendCustomRespone
 x-wso2-endpoints:
  - bookList:
     urls:
     - http://35.226.63.174:30941
+ - bookSearch:
+    urls:
+    - etcd(bookSearch,http://35.226.63.174:31216)
+
 
 
 
