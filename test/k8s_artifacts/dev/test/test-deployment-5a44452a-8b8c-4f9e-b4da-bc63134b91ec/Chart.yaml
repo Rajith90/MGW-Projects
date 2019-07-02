@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: '1.0'
-description: Helm chart for test-deployment-5a44452a-8b8c-4f9e-b4da-bc63134b91ec
-name: test-deployment-5a44452a-8b8c-4f9e-b4da-bc63134b91ec
-version: 0.1.0
