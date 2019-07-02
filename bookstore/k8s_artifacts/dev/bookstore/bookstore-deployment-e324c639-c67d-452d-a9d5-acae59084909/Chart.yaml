@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: '1.0'
-description: Helm chart for bookstore-deployment-e324c639-c67d-452d-a9d5-acae59084909
-name: bookstore-deployment-e324c639-c67d-452d-a9d5-acae59084909
-version: 0.1.0
