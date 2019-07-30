@@ -16,7 +16,7 @@
     #port = ''
   [kubernetes.kubernetesConfigMap]
     enable = true
-    ballerinaConf = 'bookstore/micro-gw.conf'
+    ballerinaConf = '/var/jenkins_home/workspace/MicroGatewayPipeline/MGW-Projects/bookstore/conf/micro-gw.conf'
     #[[kubernetes.kubernetesConfigMap.configMaps]]
     #    name = ''
     #    mountPath = ''
