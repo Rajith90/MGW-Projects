@@ -1,0 +1,24 @@
+[kubernetes]
+  [kubernetes.kubernetesDeployment]
+    enable = true
+    replicas = '2'
+    imagePullPolicy = 'Always'
+    baseImage = 'wso2/wso2micro-gw:3.0.1'
+    image = 'rajithk90/bookstoregateway:3.0.0'
+    buildImage = true
+    push = true
+    env = '{"b7a_log_level": "TRACE"}'
+  [kubernetes.kubernetesService]
+    enable = true
+    #name = 'petstore_service'
+    #labels = ''
+    serviceType = 'NodePort'
+    #port = ''
+  [kubernetes.kubernetesConfigMap]
+    enable = true
+    ballerinaConf = 'bookstore/micro-gw.conf'
+    #[[kubernetes.kubernetesConfigMap.configMaps]]
+    #    name = ''
+    #    mountPath = ''
+    #    readOnly = false
+    #    data = ['']
