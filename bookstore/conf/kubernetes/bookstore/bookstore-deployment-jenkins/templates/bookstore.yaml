@@ -6,7 +6,7 @@ metadata:
   finalizers: []
   labels:
     app: "bookstore"
-  name: "bookstore-rest-ab880eb8-892c-4822-9a76-6422741017fb"
+  name: "bookstore-rest-07698ee1-3c0c-4db7-94c5-5d8857ae6deb"
   ownerReferences: []
 spec:
   externalIPs: []
@@ -26,7 +26,7 @@ metadata:
   finalizers: []
   labels:
     app: "bookstore"
-  name: "bookstore-rest-0c512366-9497-4e4c-988e-f78b08d3f629"
+  name: "bookstore-rest-e85ef768-3b12-47a4-9eb5-b11f02bd52a9"
   ownerReferences: []
 spec:
   externalIPs: []
@@ -46,7 +46,7 @@ metadata:
   finalizers: []
   labels:
     app: "bookstore"
-  name: "bookstore-rest-e6ee697e-241b-4f43-b18c-a6a19e020afa"
+  name: "bookstore-rest-93327221-5d72-4133-9b82-475fbcc85dfd"
   ownerReferences: []
 spec:
   externalIPs: []
