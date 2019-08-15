@@ -1,6 +1,7 @@
 [kubernetes]
   [kubernetes.kubernetesDeployment]
     enable = true
+    name='bookstore-deployment-jenkins'
     replicas = '2'
     imagePullPolicy = 'Always'
     baseImage = 'wso2/wso2micro-gw:3.0.1'
