@@ -5,7 +5,7 @@
     replicas = '2'
     imagePullPolicy = 'Always'
     baseImage = 'wso2/wso2micro-gw:3.0.1'
-    image = 'rajithk90/bookstoregateway:v1'
+    image = 'rajithk90/bookstoregateway:v2'
     buildImage = true
     push = true
     env = '{"b7a_log_level": "TRACE"}'
