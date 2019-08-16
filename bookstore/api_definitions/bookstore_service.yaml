@@ -33,30 +33,6 @@ paths:
       x-wso2-production-endpoints:
         urls:
           - http://35.188.34.162:32470
-  "/books/search/{query}":
-    get:
-      tags:
-      - pet
-      summary: Find pet by ID
-      description: Returns a single pet
-      operationId: getPetById
-      parameters:
-      - name: query
-        in: path
-        description: search query to be used
-        required: true
-        schema:
-          type: string
-      responses:
-        '200':
-          description: successful operation
-        '400':
-          description: Invalid query supplied
-        '404':
-          description: Pet not found
-      x-wso2-production-endpoints:
-       urls: 
-        - http://35.188.34.162:30540
 
 
 
