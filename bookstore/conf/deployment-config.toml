@@ -29,7 +29,7 @@
     port = 36312
   [kubernetes.kubernetesConfigMap]
     enable = true
-    ballerinaConf = '/Users/rajithroshan/Documents/APIM/cli_restructure/wso2am-micro-gw-toolkit-3.0.1/resources/conf/micro-gw.conf'
+    ballerinaConf = '/var/jenkins_home/workspace/MicroGatewayPipeline/MGW-Projects/bookstore/conf/micro-gw.conf'
     #[[kubernetes.kubernetesConfigMap.configMaps]]
     #    name = ''
     #    mountPath = ''
