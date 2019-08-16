@@ -1,119 +1,37 @@
-[docker]
-  [docker.dockerConfig]
-    enable = false
-    #name = ""
-    #registry = ''
-    #tag = ''
-    #buildImage = ''
-    #dockerHost = ''
-    #dockerCertPath = ''
-    #baseImage = ''
-    #enableDebug = ''
-    #debugPort = ''
-    #push = ''
-    #username = ''
-    #password = ''
-  [docker.dockerCopyFiles]
-    enable = false
-    [[docker.dockerCopyFiles.files]]
-        source = ''
-        target = ''
-        isBallerinaConf = false
 [kubernetes]
   [kubernetes.kubernetesDeployment]
-    enable = false
-    #name = ''
+    enable = true
+    name='bookstore-deployment-jenkins'
+    replicas = '2'
+    imagePullPolicy = 'Always'
+    baseImage = 'wso2/wso2micro-gw:3.0.1'
+    image = 'rajithk90/bookstoregateway:v1'
+    buildImage = true
+    push = true
+    env = '{"b7a_log_level": "TRACE"}'
+  [kubernetes.kubernetesServiceHttps]
+    enable = true
+    name = 'bookstore_https'
     #labels = ''
-    #replicas = ''
-    #enableLiveness = ''
-    #initialDelaySeconds = ''
-    #periodSeconds = ''
-    #livenessPort = ''
-    #imagePullPolicy = ''
-    #image = ''
-    #env = ''
-    #buildImage = ''
-    [kubernetes.kubernetesDeployment.copyFiles]
-        enable = false
-        [[kubernetes.kubernetesDeployment.copyFiles.files]]
-            source = ''
-            target = ''
-    #dockerHost = ''
-    #dockerCertPath = ''
-    #push = ''
-    #username = ''
-    #password = ''
-    #baseImage = ''
-    #singleYAML = ''
-  [kubernetes.kubernetesService]
-    enable = false
-    #name = ''
+    serviceType = 'LoadBalancer'
+    port = 36310
+  [kubernetes.kubernetesServiceHttp]
+    enable = true
+    name = 'bookstore_http'
     #labels = ''
-    #serviceType = ''
-    #port = ''
-  [kubernetes.kubernetesIngress]
-    enable = false
-    #name = ''
+    serviceType = 'LoadBalancer'
+    port = 36311
+  [kubernetes.kubernetesServiceToken]
+    enable = true
+    name = 'mgw-token'
     #labels = ''
-    #hostname = ''
-    #annotations = ''
-    #path = ''
-    #targetPath = ''
-    #ingressClass = ''
-  [kubernetes.secureKubernetesIngress]
-    enable = false
-    #name = ''
-    #labels = ''
-    #hostname = ''
-    #annotations = ''
-    #path = ''
-    #targetPath = ''
-    #ingressClass = ''
-    #keyStorePath = '${ballerina.home}/bre/security/ballerinaKeystore.p12'
-    #keyStorePassword = '$env{Keystore_Password}'
-  [kubernetes.kubernetesHpa]
-    enable = false
-    #name = ''
-    #labels = ''
-    #minReplicas = ''
-    #maxReplicas = ''
-    #cpuPrecentage = ''
-  [kubernetes.kubernetesSecret]
-    enable = false
-    #name = ''
-    #mountPath = ''
-    #readOnly = ''
-    #data = ''
+    serviceType = 'LoadBalancer'
+    port = 36312
   [kubernetes.kubernetesConfigMap]
-    enable = false
-    ballerinaConf = 'path/to/micro-gw.conf'
+    enable = true
+    ballerinaConf = '/Users/rajithroshan/Documents/APIM/cli_restructure/wso2am-micro-gw-toolkit-3.0.1/resources/conf/micro-gw.conf'
     #[[kubernetes.kubernetesConfigMap.configMaps]]
     #    name = ''
     #    mountPath = ''
     #    readOnly = false
     #    data = ['']
-  [kubernetes.kubernetesPersistentVolumeClaim]
-    enable = false
-    #name = ''
-    #mountPath = ''
-    #readOnly = ''
-    #accessMode = ''
-    #volumeClaimSize = ''
-  [kubernetes.kubernetesJob]
-    enable = false
-    #name = ''
-    #labels = ''
-    #restartPolicy = ''
-    #backoffLimit = ''
-    #activeDeadlineSeconds = ''
-    #schedule = ''
-    #imagePullPolicy = ''
-    #image = ''
-    #env = ''
-    #buildImage = ''
-    #dockerHost = ''
-    #dockerCertPath = ''
-    #push = ''
-    #username = ''
-    #password = ''
-    #baseImage = ''

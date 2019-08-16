@@ -5,19 +5,31 @@
     replicas = '2'
     imagePullPolicy = 'Always'
     baseImage = 'wso2/wso2micro-gw:3.0.1'
-    image = 'rajithk90/bookstoregateway:3.0.0'
+    image = 'rajithk90/bookstoregateway:v1'
     buildImage = true
     push = true
     env = '{"b7a_log_level": "TRACE"}'
-  [kubernetes.kubernetesService]
+  [kubernetes.kubernetesServiceHttps]
     enable = true
-    #name = 'petstore_service'
+    name = 'bookstore_https'
     #labels = ''
-    serviceType = 'NodePort'
-    #port = ''
+    serviceType = 'LoadBalancer'
+    port = 36310
+  [kubernetes.kubernetesServiceHttp]
+    enable = true
+    name = 'bookstore_http'
+    #labels = ''
+    serviceType = 'LoadBalancer'
+    port = 36311
+  [kubernetes.kubernetesServiceToken]
+    enable = true
+    name = 'mgw-token'
+    #labels = ''
+    serviceType = 'LoadBalancer'
+    port = 36312
   [kubernetes.kubernetesConfigMap]
     enable = true
-    ballerinaConf = '/var/jenkins_home/workspace/MicroGatewayPipeline/MGW-Projects/bookstore/conf/micro-gw.conf'
+    ballerinaConf = '/Users/rajithroshan/Documents/APIM/cli_restructure/wso2am-micro-gw-toolkit-3.0.1/resources/conf/micro-gw.conf'
     #[[kubernetes.kubernetesConfigMap.configMaps]]
     #    name = ''
     #    mountPath = ''
