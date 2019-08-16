@@ -135,7 +135,7 @@ spec:
         - name: "CONFIG_FILE"
           value: "/home/ballerina/conf/ballerina.conf"
         envFrom: []
-        image: "rajithk90/bookstoregateway:vv1"
+        image: "rajithk90/bookstoregateway:v1"
         imagePullPolicy: "Always"
         name: "bookstore-deployment-jenkins"
         ports:
